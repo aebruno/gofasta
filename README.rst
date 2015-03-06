@@ -49,4 +49,5 @@ References
 -------------------------------------------------------------------------------
 
 [1] http://en.wikipedia.org/wiki/FASTA_format 
+
 [2] http://samtools.sourceforge.net/samtools.shtml
