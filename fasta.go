@@ -40,6 +40,7 @@ func SimpleParser(file *os.File) chan *SeqRecord {
             if line[0] == '>' {
                 c <- &SeqRecord{Id: strings.TrimSpace(id), Seq: seqbuf.String()}
                 id = line[1:]
+                seqbuf.Reset()
                 continue
             }
 
