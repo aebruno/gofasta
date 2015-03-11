@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/aebruno/gofasta"
-	"fmt"
-	"log"
-	"os"
-	"regexp"
-	"strconv"
+    "github.com/aebruno/gofasta"
+    "fmt"
+    "log"
+    "os"
+    "regexp"
+    "strconv"
 )
 
 var regionPattern = regexp.MustCompile(`(\w+):(\d+)-(\d+)`)
@@ -16,10 +16,10 @@ func main() {
         log.Fatal("usage: faidx [fasta] [chrom:start-end]")
     }
 
-	f, err := gofasta.NewFaidx(os.Args[1])
-	if err != nil {
+    f, err := gofasta.NewFaidx(os.Args[1])
+    if err != nil {
         log.Fatalf("[FATAL] Failed to open fastsa file: %s", err)
-	}
+    }
     defer f.Close()
 
 
