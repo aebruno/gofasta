@@ -38,13 +38,6 @@ Cat FASTA files::
       -seq=false: output sequences
 
 -------------------------------------------------------------------------------
-License
--------------------------------------------------------------------------------
-
-gofasta was written by Andrew E. Bruno and released under the GNU General
-Public License ("GPL") Version 3.0.  See the LICENSE file.
-
--------------------------------------------------------------------------------
 References
 -------------------------------------------------------------------------------
 
