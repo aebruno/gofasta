@@ -15,9 +15,7 @@ Install
 
 Fetch from github::
 
-    $ go get install github.com/aebruno/gofasta
-    $ go get install github.com/aebruno/gofasta/faidx
-    $ go get install github.com/aebruno/gofasta/fastcat
+    $ go get github.com/aebruno/gofasta/...
 
 -------------------------------------------------------------------------------
 Usage
