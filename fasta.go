@@ -5,7 +5,6 @@
 package gofasta
 
 import (
-    "strings"
     "os"
     "bufio"
     "bytes"
@@ -30,28 +29,28 @@ func SimpleParser(file *os.File) chan *SeqRecord {
             return
         }
 
-        id, err := reader.ReadString('\n')
+        id, err := reader.ReadBytes('\n')
         if err != nil {
             return
         }
 
         var seqbuf bytes.Buffer
         for ;; {
-            line, err := reader.ReadString('\n')
-            if err != nil || line == "" {
+            line, err := reader.ReadBytes('\n')
+            if err != nil || len(line) == 0 {
                 break
             }
             if line[0] == '>' {
-                c <- &SeqRecord{Id: strings.TrimSpace(id), Seq: seqbuf.String()}
+                c <- &SeqRecord{Id: string(bytes.TrimSpace(id)), Seq: seqbuf.String()}
                 id = line[1:]
                 seqbuf.Reset()
                 continue
             }
 
-            seqbuf.WriteString(strings.TrimSpace(line))
+            seqbuf.Write(line[:len(line)-1])
         }
 
-        c <- &SeqRecord{Id: strings.TrimSpace(id), Seq: seqbuf.String()}
+        c <- &SeqRecord{Id: string(bytes.TrimSpace(id)), Seq: seqbuf.String()}
     }();
 
     return c
